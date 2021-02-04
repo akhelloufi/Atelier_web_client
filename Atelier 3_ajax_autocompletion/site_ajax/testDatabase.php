@@ -1,4 +1,5 @@
-<?php     //open connection to mysql db    
+<?php   
+  //open connection to mysql database commune    
  $connection = mysqli_connect("localhost","root","","villesmercredi")
   or die("Error " . mysqli_error($connection));
   //hostname localhost username :root, 
@@ -8,12 +9,29 @@
            $result = mysqli_query($connection, $sql) 
            or die("Error in Selecting " . mysqli_error($connection));   
              //create an array    
-              $cmuarray = array();   
+              $T = array();   
                 while($row =mysqli_fetch_assoc($result))   
-                  {         $cmuarray[] = $row;     } 
+                  {         $T[] = $row;     } 
                   
-                 // print_r($cmuarray);
-                   echo json_encode($cmuarray);  
+                 // print_r($T);
+                 
+                 echo json_encode(utf8ize($T) );
+                 //utf8size corrige le pb des caractere nom reconnu
+
+                 if( json_encode( $T ) === false ) {
+                   echo 'er'. json_last_error() ;
+                  }
+                 //{"a":1,"b":2,"c":3,"d":4,"e":5}
                        //close the db connection   
                          mysqli_close($connection); 
+ ?>
+ <?php
+function utf8ize( $mixed ) { 
+  if (is_array($mixed)) {
+     foreach ($mixed as $key => $value) {
+        $mixed[$key] = utf8ize($value); }
+       } elseif (is_string($mixed)) { 
+         return mb_convert_encoding($mixed, "utf-8", "UTF-8"); }
+   return $mixed; }
+
  ?>
