@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .c1{color:red;width:30%;border:1px solid green;}
+        .c2{color:blue;width:50%;border:10px double pink;}
+    </style>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script>
+//$=jquery $("#t1") querySelector("#t1")
+
+       $(document).ready(function(){//tout le dom est charge
+
+            $("#div1").click(function(){
+                    $("#div1").html("<h1> salam alikom</h1>");
+                    $("#div1").addClass("c1");
+                
+           });
+             //mettre votre code ici pour la div2 pour class c2 et text=salam
+            $("#div2").click(function(){
+                
+                            $("#div2").html("<h1> salut sava </h1>");
+                            $("#div2").addClass("c2");
+            });
+
+            $("#div2").dblclick(function(){
+                $("#div2").removeClass("c2");
+            })
+            
+       });
+        
+    </script>
+</head>
+<body>
+    <div id="div1">hello</div>
+    <div id="div2">hello</div>
+
+    
+</body>
+</html>
