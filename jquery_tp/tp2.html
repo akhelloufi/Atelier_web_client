@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+     
+    <title>Page Title</title>
+     <script src="js/jquery-3.3.1.min.js"></script>
+ <style>
+     .c1{background-color: gray;padding:25px;}
+ </style>
+   </head>
+   <body>
+   <header>
+    <h1>Exemple jQuery (sélecteurs)</h1> 
+   </header> 
+   <div id="main"> 
+        <div>Div 1</div>
+        <ul class="u1" style="background-color: blue;">
+                <li>Li 1</li> 
+                <li>Li 2</li> 
+                <li>Li 3</li> 
+                <li>Li 4</li>
+        </ul> 
+    </div> 
+<footer>   
+   <script> 
+      $(document).ready( 
+       function() {
+           $(".u1").click(function(){
+                $(".u1").parent().parent().addClass("c1");
+                 
+           });
+     }); 
+     
+     </script> 
+   </footer> </body>
+   </html>
+    

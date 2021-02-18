@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='style/style1.css'>
+    <script src='js/jquery-3.3.1.min.js'></script>
+    <script src="js/jquery-ui.min.js"></script>
+<style>
+    .c1{
+    border:1px solid red;
+    width:40%;
+     position:relative;
+}
+</style>
+
+</head>
+<body>
+    <div>a</div>
+    <div>b</div>
+    <div>c</div>
+    <div>d</div>
+    <script>
+
+    $(document).ready(function(){
+         $("div").addClass("c1");//tout div
+
+         $("div").click(function(){
+              $("body").prepend("<span>"+$(this).html()+"</span>");
+              
+               
+              $(this).animate({width:"+=10%",backgroundColor:"red"},
+                1500);
+         });
+         $("div").mouseover(function(){
+            $(this).animate({'top': '+=25', left: '25'}, 1000)
+            .animate({backgroundColor:'red'},1000);
+          
+         })
+         $("div").mouseout(function(){
+            $(this).animate({backgroundColor:"rgb(0,255,0)"},1000);
+          
+         })
+
+    });
+
+  
+    </script>
+</body>
+</html>
